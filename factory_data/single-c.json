@@ -1,0 +1,461 @@
+{
+    "cameraInternal": null,
+    "cameraTof": null,
+    "charging": [
+    ],
+    "lightup": null,
+    "panoramic": [
+        {
+            "frontCameraSn": "HJQZ2330171",
+            "fullViewCameraSn": "HJN12330258",
+            "sn": "LFIN2230700249"
+        },
+        {
+            "frontCameraSn": "HJQZ2330177",
+            "fullViewCameraSn": "HJN12330280",
+            "sn": "LFIN2230700255"
+        },
+        {
+            "frontCameraSn": "HJQZ2330174",
+            "fullViewCameraSn": "HJN12330317",
+            "sn": "LFIN2230700258"
+        },
+        {
+            "frontCameraSn": "HJQZ2330184",
+            "fullViewCameraSn": "HJN12330332",
+            "sn": "LFIN2230700252"
+        },
+        {
+            "frontCameraSn": "HJQZ2330217",
+            "fullViewCameraSn": "HJN12330315",
+            "sn": "LFIN2230700199"
+        },
+        {
+            "frontCameraSn": "HJQZ2330214",
+            "fullViewCameraSn": "HJN12330370",
+            "sn": "LFIN2230700201"
+        },
+        {
+            "frontCameraSn": "HJQZ2330221",
+            "fullViewCameraSn": "HJN12330301",
+            "sn": "LFIN2230700204"
+        },
+        {
+            "frontCameraSn": "HJQZ2330241",
+            "fullViewCameraSn": "HJN12330293",
+            "sn": "LFIN2230700207"
+        },
+        {
+            "frontCameraSn": "HJQZ2330219",
+            "fullViewCameraSn": "HJN12330365",
+            "sn": "LFIN2230700232"
+        },
+        {
+            "frontCameraSn": "HJQZ2330227",
+            "fullViewCameraSn": "HJN12330371",
+            "sn": "LFIN2230700235"
+        },
+        {
+            "frontCameraSn": "HJQZ2330278",
+            "fullViewCameraSn": "HJN12330311",
+            "sn": "LFIN2230700238"
+        },
+        {
+            "frontCameraSn": "HJQZ2330398",
+            "fullViewCameraSn": "HJN12330384",
+            "sn": "LFIN2230700212"
+        },
+        {
+            "frontCameraSn": "HJQZ2330276",
+            "fullViewCameraSn": "HJN12330333",
+            "sn": "LFIN2230700200"
+        },
+        {
+            "frontCameraSn": "HJQZ2330163",
+            "fullViewCameraSn": "HJN12330346",
+            "sn": "LFIN2230700229"
+        },
+        {
+            "frontCameraSn": "HJQZ2330198",
+            "fullViewCameraSn": "HJN12330253",
+            "sn": "LFIN2230700239"
+        },
+        {
+            "frontCameraSn": "HJQZ2330400",
+            "fullViewCameraSn": "HJN12330248",
+            "sn": "LFIN2230700234"
+        },
+        {
+            "frontCameraSn": "HJQZ2330273",
+            "fullViewCameraSn": "HJN12330360",
+            "sn": "LFIN2230700225"
+        },
+        {
+            "frontCameraSn": "HJQZ2330264",
+            "fullViewCameraSn": "HJN12330263",
+            "sn": "LFIN2230700222"
+        },
+        {
+            "frontCameraSn": "HJQZ2330268",
+            "fullViewCameraSn": "HJN12330325",
+            "sn": "LFIN2230700228"
+        },
+        {
+            "frontCameraSn": "HJQZ2330397",
+            "fullViewCameraSn": "HJN12330232",
+            "sn": "LFIN2230700224"
+        },
+        {
+            "frontCameraSn": "HJQZ2330256",
+            "fullViewCameraSn": "HJN12330207",
+            "sn": "LFIN2230700230"
+        },
+        {
+            "frontCameraSn": "HJQZ2330310",
+            "fullViewCameraSn": "HJN12330222",
+            "sn": "LFIN2230700233"
+        },
+        {
+            "frontCameraSn": "HJQZ2330261",
+            "fullViewCameraSn": "HJN12330191",
+            "sn": "LFIN2230700223"
+        },
+        {
+            "frontCameraSn": "HJQZ2330274",
+            "fullViewCameraSn": "HJN12330234",
+            "sn": "LFIN2230700220"
+        },
+        {
+            "frontCameraSn": "HJQZ2330228",
+            "fullViewCameraSn": "HJN12330225",
+            "sn": "LFIN2230700236"
+        },
+        {
+            "frontCameraSn": "HJQZ2330289",
+            "fullViewCameraSn": "HJN12330195",
+            "sn": "LFIN2230700203"
+        },
+        {
+            "frontCameraSn": "HJQZ2330399",
+            "fullViewCameraSn": "HJN12330214",
+            "sn": "LFIN2230700215"
+        },
+        {
+            "frontCameraSn": "HJQZ2330258",
+            "fullViewCameraSn": "HJN12330219",
+            "sn": "LFIN2230700210"
+        },
+        {
+            "frontCameraSn": "HJQZ2330188",
+            "fullViewCameraSn": "HJN12330238",
+            "sn": "LFIN2230700209"
+        },
+        {
+            "frontCameraSn": "HJQZ2330302",
+            "fullViewCameraSn": "HJN12330270",
+            "sn": "LFIN2230700213"
+        },
+        {
+            "frontCameraSn": "HJQZ2330305",
+            "fullViewCameraSn": "HJN12330269",
+            "sn": "LFIN2230700216"
+        },
+        {
+            "frontCameraSn": "HJQZ2330287",
+            "fullViewCameraSn": "HJN12330249",
+            "sn": "LFIN2230700206"
+        },
+        {
+            "frontCameraSn": "HJQZ2330294",
+            "fullViewCameraSn": "HJN12330271",
+            "sn": "LFIN2230700202"
+        },
+        {
+            "frontCameraSn": "HJQZ2330298",
+            "fullViewCameraSn": "HJN12330366",
+            "sn": "LFIN2230700205"
+        },
+        {
+            "frontCameraSn": "HJQZ2330307",
+            "fullViewCameraSn": "HJN12330380",
+            "sn": "LFIN2230700208"
+        },
+        {
+            "frontCameraSn": "HJQZ2330231",
+            "fullViewCameraSn": "HJN12330209",
+            "sn": "LFIN2230700211"
+        },
+        {
+            "frontCameraSn": "HJQZ2330308",
+            "fullViewCameraSn": "HJN12330228",
+            "sn": "LFIN2230700214"
+        },
+        {
+            "frontCameraSn": "HJQZ2330224",
+            "fullViewCameraSn": "HJN12330203",
+            "sn": "LFIN2230700246"
+        },
+        {
+            "frontCameraSn": "HJQZ2330243",
+            "fullViewCameraSn": "HJN12330239",
+            "sn": "LFIN2230700243"
+        },
+        {
+            "frontCameraSn": "HJQZ2330301",
+            "fullViewCameraSn": "HJN12330224",
+            "sn": "LFIN2230700248"
+        },
+        {
+            "frontCameraSn": "HJQZ2330252",
+            "fullViewCameraSn": "HJN12330190",
+            "sn": "LFIN2230700251"
+        },
+        {
+            "frontCameraSn": "HJQZ2330311",
+            "fullViewCameraSn": "HJN12330193",
+            "sn": "LFIN2230700254"
+        },
+        {
+            "frontCameraSn": "HJQZ2330170",
+            "fullViewCameraSn": "HJN12330202",
+            "sn": "LFIN2230700257"
+        },
+        {
+            "frontCameraSn": "HJQZ2330190",
+            "fullViewCameraSn": "HJN12330197",
+            "sn": "LFIN2230700247"
+        },
+        {
+            "frontCameraSn": "HJQZ2330172",
+            "fullViewCameraSn": "HJN12330204",
+            "sn": "LFIN2230700245"
+        },
+        {
+            "frontCameraSn": "HJQZ2330167",
+            "fullViewCameraSn": "HJN12330212",
+            "sn": "LFIN2230700242"
+        }
+    ],
+    "single": {
+        "charge": [
+        ],
+        "x3": [
+            {
+                "x3": "LFIN2230700249",
+                "x3_mac": "70:4A:0E:4A:9C:91"
+            },
+            {
+                "x3": "LFIN2230700255",
+                "x3_mac": "70:4A:0E:4A:9C:2F"
+            },
+            {
+                "x3": "LFIN2230700258",
+                "x3_mac": "50:41:1C:39:BD:A3"
+            },
+            {
+                "x3": "LFIN2230700252",
+                "x3_mac": "50:41:1C:39:BD:ED"
+            },
+            {
+                "x3": "LFIN2230700199",
+                "x3_mac": "50:41:1C:39:BE:1D"
+            },
+            {
+                "x3": "LFIN2230700201",
+                "x3_mac": "70:4A:0E:4A:9C:E3"
+            },
+            {
+                "x3": "LFIN2230700204",
+                "x3_mac": "50:41:1C:39:D4:2D"
+            },
+            {
+                "x3": "LFIN2230700207",
+                "x3_mac": "50:41:1C:39:BD:69"
+            },
+            {
+                "x3": "LFIN2230700232",
+                "x3_mac": "50:41:1C:39:BE:37"
+            },
+            {
+                "x3": "LFIN2230700235",
+                "x3_mac": "50:41:1C:39:BD:C3"
+            },
+            {
+                "x3": "LFIN2230700238",
+                "x3_mac": "50:41:1C:39:BD:C1"
+            },
+            {
+                "x3": "LFIN2230700212",
+                "x3_mac": "50:41:1C:39:BD:87"
+            },
+            {
+                "x3": "LFIN2230700200",
+                "x3_mac": "50:41:1C:39:BD:B1"
+            },
+            {
+                "x3": "LFIN2230700229",
+                "x3_mac": "50:41:1C:39:BD:CB"
+            },
+            {
+                "x3": "LFIN2230700239",
+                "x3_mac": "50:41:1C:39:BD:5D"
+            },
+            {
+                "x3": "LFIN2230700234",
+                "x3_mac": "50:41:1C:39:BD:BD"
+            },
+            {
+                "x3": "LFIN2230700225",
+                "x3_mac": "70:4A:0E:4A:9C:5D"
+            },
+            {
+                "x3": "LFIN2230700222",
+                "x3_mac": "70:4A:0E:4A:9C:93"
+            },
+            {
+                "x3": "LFIN2230700228",
+                "x3_mac": "70:4A:0E:4A:9C:41"
+            },
+            {
+                "x3": "LFIN2230700231",
+                "x3_mac": "50:41:1C:39:BD:95"
+            },
+            {
+                "x3": "LFIN2230700219",
+                "x3_mac": "50:41:1C:39:BD:E1"
+            },
+            {
+                "x3": "LFIN2230700237",
+                "x3_mac": "50:41:1C:39:D4:05"
+            },
+            {
+                "x3": "LFIN2230700240",
+                "x3_mac": "50:41:1C:39:BD:79"
+            },
+            {
+                "x3": "LFIN2230700227",
+                "x3_mac": "50:41:1C:39:BD:67"
+            },
+            {
+                "x3": "LFIN2230700218",
+                "x3_mac": "70:4A:0E:4A:9C:C3"
+            },
+            {
+                "x3": "LFIN2230700221",
+                "x3_mac": "50:41:1C:39:BD:B3"
+            },
+            {
+                "x3": "LFIN2230700224",
+                "x3_mac": "50:41:1C:39:D4:13"
+            },
+            {
+                "x3": "LFIN2230700226",
+                "x3_mac": "50:41:1C:39:D4:2B"
+            },
+            {
+                "x3": "LFIN2230700230",
+                "x3_mac": "50:41:1C:39:BD:77"
+            },
+            {
+                "x3": "LFIN2230700233",
+                "x3_mac": "50:41:1C:39:BD:EB"
+            },
+            {
+                "x3": "LFIN2230700223",
+                "x3_mac": "50:41:1C:39:BD:C7"
+            },
+            {
+                "x3": "LFIN2230700220",
+                "x3_mac": "50:41:1C:39:BD:F5"
+            },
+            {
+                "x3": "LFIN2230700236",
+                "x3_mac": "70:4A:0E:4A:9C:D7"
+            },
+            {
+                "x3": "LFIN2230700203",
+                "x3_mac": "50:41:1C:39:BD:FD"
+            },
+            {
+                "x3": "LFIN2230700215",
+                "x3_mac": "50:41:1C:39:BD:83"
+            },
+            {
+                "x3": "LFIN2230700210",
+                "x3_mac": "70:4A:0E:4A:9C:FB"
+            },
+            {
+                "x3": "LFIN2230700209",
+                "x3_mac": "50:41:1C:39:BD:5F"
+            },
+            {
+                "x3": "LFIN2230700213",
+                "x3_mac": "50:41:1C:39:CD:8D"
+            },
+            {
+                "x3": "LFIN2230700216",
+                "x3_mac": "50:41:1C:39:CD:63"
+            },
+            {
+                "x3": "LFIN2230700206",
+                "x3_mac": "50:41:1C:39:BE:45"
+            },
+            {
+                "x3": "LFIN2230700202",
+                "x3_mac": "50:41:1C:39:CD:6B"
+            },
+            {
+                "x3": "LFIN2230700205",
+                "x3_mac": "50:41:1C:39:CD:6F"
+            },
+            {
+                "x3": "LFIN2230700208",
+                "x3_mac": "50:41:1C:39:CD:59"
+            },
+            {
+                "x3": "LFIN2230700211",
+                "x3_mac": "50:41:1C:39:BE:03"
+            },
+            {
+                "x3": "LFIN2230700214",
+                "x3_mac": "50:41:1C:39:BD:DD"
+            },
+            {
+                "x3": "LFIN2230700246",
+                "x3_mac": "50:41:1C:39:BD:BB"
+            },
+            {
+                "x3": "LFIN2230700243",
+                "x3_mac": "70:4A:0E:4A:9C:B1"
+            },
+            {
+                "x3": "LFIN2230700248",
+                "x3_mac": "50:41:1C:39:D4:21"
+            },
+            {
+                "x3": "LFIN2230700251",
+                "x3_mac": "50:41:1C:39:BD:97"
+            },
+            {
+                "x3": "LFIN2230700254",
+                "x3_mac": "70:4A:0E:4A:9C:79"
+            },
+            {
+                "x3": "LFIN2230700257",
+                "x3_mac": "50:41:1C:39:BD:7D"
+            },
+            {
+                "x3": "LFIN2230700247",
+                "x3_mac": "70:4A:0E:4A:9C:B7"
+            },
+            {
+                "x3": "LFIN2230700245",
+                "x3_mac": "50:41:1C:39:BD:9B"
+            },
+            {
+                "x3": "LFIN2230700242",
+                "x3_mac": "70:4A:0E:4A:9C:95"
+            }
+        ]
+    }
+}

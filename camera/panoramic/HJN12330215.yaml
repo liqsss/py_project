@@ -1,0 +1,18 @@
+%YAML:1.0
+---
+model_type: MEI
+camera_name: HJN12330215
+image_width: 1920
+image_height: 1080
+mirror_parameters:
+   xi: 1.5855222725381901e+00
+distortion_parameters:
+   k1: -1.3883208913654196e-01
+   k2: 3.4165060728624169e-01
+   p1: -3.1868894943985382e-03
+   p2: -4.6538762286177050e-03
+projection_parameters:
+   gamma1: 6.9457344628152771e+02
+   gamma2: 6.9302203627861934e+02
+   u0: 1.0035014683677322e+03
+   v0: 5.0981041130176624e+02
