@@ -2,21 +2,18 @@ import speech_recognition as sr
 import pyttsx3
 import openai
 
-# 设置你的 API 密钥
-openai.api_key = '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'  # chat GPT  API key
+openai.api_base = 'https://api.chatanywhere.com.cn'
+openai.api_key = 'sk-K2kmaIsLhynwlQIeCl4OXELsA4xyUe03eaRwFoIXR7w5Kqbz'
 
 # 对话核心
-def chat_with_gpt(prompt):
+def chat_with_gpt(messages: list):
 	response = openai.Completion.create(
-		engine='text-davinci-003',
-		prompt=prompt,
-		max_tokens=1000,
-		temperature=1,
-		n=1,
-		stop=None
+		model='gpt-3.5-turbo',
+		messages=messages,
+		stream=True,
 	)
-	reply = response.choices[0].text.strip()
-	return reply
+	#reply = response.choices[0].text.strip()
+	#return reply
 
 
 # 初始化语音识别器和语音合成器
@@ -78,5 +75,35 @@ def main():
 		if not "未识别到语音" in call_text:
 			speak("现在默认处于待机模式。若想开启对话，请呼唤语音助手。")
 
-ret = chat_with_gpt("你好")
-print(ret)
+
+
+def gpt_35_api_stream(messages: list):
+    try:
+        response = openai.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=messages,
+            stream=True,
+        )
+        completion = {'role': '', 'content': ''}
+        for event in response:
+            if event['choices'][0]['finish_reason'] == 'stop':
+                speak(completion["content"])
+                break
+            for delta_k, delta_v in event['choices'][0]['delta'].items():
+                completion[delta_k] += delta_v
+
+        messages.append(completion)  # 直接在传入参数 messages 中追加消息
+        return (True, '')
+    except Exception as err:
+        return (False, f'OpenAI API 异常: {err}')
+
+if __name__ == '__main__':
+    messages = []
+    while True:
+        text = input("请输入你的问题:")
+        completion = {}
+        completion['role'] = 'user' #'"{'role': '', 'content': ''}
+        completion['content'] = text
+        messages.append(completion)# = [{'role': 'user', 'content': text}, ]
+        gpt_35_api_stream(messages)
+
