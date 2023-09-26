@@ -2,6 +2,7 @@ import speech_recognition as sr
 import pyttsx3
 import openai
 import face
+import sendEmail
 
 openai.api_base = 'https://api.chatanywhere.com.cn'
 openai.api_key = 'sk-K2kmaIsLhynwlQIeCl4OXELsA4xyUe03eaRwFoIXR7w5Kqbz'
@@ -9,15 +10,6 @@ openai.api_key = 'sk-K2kmaIsLhynwlQIeCl4OXELsA4xyUe03eaRwFoIXR7w5Kqbz'
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
-# 对话核心
-def chat_with_gpt(messages: list):
-	response = openai.Completion.create(
-		model='gpt-3.5-turbo',
-		messages=messages,
-		stream=True,
-	)
-	#reply = response.choices[0].text.strip()
-	#return reply
 
 def listen():
     with sr.Microphone() as source:
@@ -90,11 +82,13 @@ def gpt_35_api_stream(messages: list):
 
 if __name__ == '__main__':
     messages = []
-    if face.checkFace() == False:
-        print("人脸识别验证失败")
+    name = face.checkFace()
+    if name == "Unknown":
+        print("人脸识别验证失败", name)
         exit(0)
     else:
         print("人脸识别成功")
+    sendEmail.sendEmail(name)
     while True:
         text = input("请输入你的问题:")
         #text = listen()
