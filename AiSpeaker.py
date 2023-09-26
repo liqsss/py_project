@@ -1,9 +1,13 @@
 import speech_recognition as sr
 import pyttsx3
 import openai
+import face
 
 openai.api_base = 'https://api.chatanywhere.com.cn'
 openai.api_key = 'sk-K2kmaIsLhynwlQIeCl4OXELsA4xyUe03eaRwFoIXR7w5Kqbz'
+# 初始化语音识别器和语音合成器
+recognizer = sr.Recognizer()
+engine = pyttsx3.init()
 
 # 对话核心
 def chat_with_gpt(messages: list):
@@ -15,36 +19,26 @@ def chat_with_gpt(messages: list):
 	#reply = response.choices[0].text.strip()
 	#return reply
 
-
-# 初始化语音识别器和语音合成器
-recognizer = sr.Recognizer()
-engine = pyttsx3.init()
-
-
 def listen():
-	with sr.Microphone() as source:
-		print("请开始说话...")
-		audio = recognizer.listen(source)
-
-	try:
-		text = recognizer.recognize_google(audio, language='zh-CN')
-		print("User:", text)
-		return text
-	except sr.UnknownValueError:
-		print("抱歉，无法识别你说的话")
-		return "未识别到语音"
-	except sr.RequestError:
-		print("抱歉，发生了一些错误")
-
-	return ""
-
+    with sr.Microphone() as source:
+        print("请开始说话...")
+        audio = recognizer.listen(source)
+    try:
+        text = recognizer.recognize_google(audio, language='zh-CN')
+        print("User:", text)
+        return text
+    except sr.UnknownValueError:
+        print("抱歉，无法识别你说的话")
+        return "未识别到语音"
+    except sr.RequestError:
+        print("抱歉，发生了一些错误")
+    return ""
 
 # 语音输出
 def speak(text):
 	print("Chatgpt:", text)
 	engine.say(text)
 	engine.runAndWait()
-
 
 def main():
 	while True:  # 常驻开机循环
@@ -63,8 +57,7 @@ def main():
 					# 根据输入做出相应回答
 					# 这里可以根据你的需求添加更多的对话逻辑
 					chat_prompt = input_text
-					chat_reply = chat_with_gpt(chat_prompt)
-					speak(chat_reply)
+					gpt_35_api_stream(chat_prompt)
 		if "关机" in call_text and not "确认" in call_text:
 			speak("关机之后，再次见到我需要重新运行程序，请您确认是否关机。若要关机请说确认关机")
 
@@ -74,8 +67,6 @@ def main():
 			break
 		if not "未识别到语音" in call_text:
 			speak("现在默认处于待机模式。若想开启对话，请呼唤语音助手。")
-
-
 
 def gpt_35_api_stream(messages: list):
     try:
@@ -99,8 +90,16 @@ def gpt_35_api_stream(messages: list):
 
 if __name__ == '__main__':
     messages = []
+    if face.checkFace() == False:
+        print("人脸识别验证失败")
+        exit(0)
+    else:
+        print("人脸识别成功")
     while True:
         text = input("请输入你的问题:")
+        #text = listen()
+        if text == "":
+            continue
         completion = {}
         completion['role'] = 'user' #'"{'role': '', 'content': ''}
         completion['content'] = text
