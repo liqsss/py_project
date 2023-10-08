@@ -2,9 +2,9 @@ import smtplib
 from email.mime.text import MIMEText
 
 def sendEmail(name):
-	mail_host = "smtp.qq.com" # 邮件服务器地址
-	mail_user = "781576063@qq.com"  # 收件人邮箱
-	mail_pass = "sauhxypzrhqnbdja" #动态授权码登录
+	mail_host = "smtp.qq.com"
+	mail_user = "781576063@qq.com"
+	mail_pass = "sauhxypzrhqnbdja"
 
 	receiver = "meyers_007@sohu.com"  # 邮箱账号
 	msg = name + " 正在使用人脸识别系统"
