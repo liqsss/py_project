@@ -40,6 +40,8 @@ sz = pro.daily(**{
 ])
 
 plt.plot(df.index, df['close'], label="Line 1")
+plt.yscale('linear')
+#plt.plot(df['trade_date'], df['close'], label="Line 1")
 plt.legend()
 plt.show()
 
