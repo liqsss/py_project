@@ -60,25 +60,27 @@ def main():
 		if not "未识别到语音" in call_text:
 			speak("现在默认处于待机模式。若想开启对话，请呼唤语音助手。")
 
+
 def gpt_35_api_stream(messages: list):
-    try:
-        response = openai.ChatCompletion.create(
+	try:
+		response = openai.ChatCompletion.create(
             model='gpt-3.5-turbo',
             messages=messages,
             stream=True,
         )
-        completion = {'role': '', 'content': ''}
-        for event in response:
-            if event['choices'][0]['finish_reason'] == 'stop':
-                speak(completion["content"])
-                break
-            for delta_k, delta_v in event['choices'][0]['delta'].items():
-                completion[delta_k] += delta_v
+		completion = {'role': '', 'content': ''}
+		for event in response:
+			if event['choices'][0]['finish_reason'] == 'stop':
+				speak(completion["content"])
+				break
+			for delta_k, delta_v in event['choices'][0]['delta'].items():
+				completion[delta_k] += delta_v
 
-        messages.append(completion)  # 直接在传入参数 messages 中追加消息
-        return (True, '')
-    except Exception as err:
-        return (False, f'OpenAI API 异常: {err}')
+			messages.append(completion)  # 直接在传入参数 messages 中追加消息
+		return (True, '')
+	except Exception as err:
+		return (False, f'OpenAI API 异常: {err}')
+
 
 if __name__ == '__main__':
     messages = []
@@ -88,15 +90,14 @@ if __name__ == '__main__':
         exit(0)
     else:
         print("人脸识别成功")
-    sendEmail.sendEmail(name)
+    sendEmail.send_email(name)
     while True:
         text = input("请输入你的问题:")
-        #text = listen()
+        # text = listen()
         if text == "":
             continue
         completion = {}
-        completion['role'] = 'user' #'"{'role': '', 'content': ''}
+        completion['role'] = 'user'  # "{'role': '', 'content': ''}"
         completion['content'] = text
-        messages.append(completion)# = [{'role': 'user', 'content': text}, ]
+        messages.append(completion)  # = [{'role': 'user', 'content': text}, ]
         gpt_35_api_stream(messages)
-
