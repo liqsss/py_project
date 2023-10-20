@@ -2,15 +2,15 @@
 import paramiko
 import time
 import httpService
-import paho.mqtt.client as mqtt
+#import paho.mqtt.client as mqtt
 
 hostname = "192.168.1.10"  #网口直连X3机器
 mqtt_ip = "119.23.212.113"  # 生产用MQTT服务器
 port = 22
 username = "root"
 password = "lFi@NovaBot"
-
-class Mqtt:
+'''
+class Mqtt():
     def on_connect(self, client, userdata, flags, rc):
         print("hello mqtt")
 
@@ -23,8 +23,10 @@ class Mqtt:
         client.on_message = self.on_message
         client.connect(mqtt_ip, 1883, 60)
         client.loop_start()
+'''
 
-class RemoteControl:
+
+class RemoteControl():
     def __init__(self, hostname, port, username, password):
         self.hostname = hostname
         self.port = port
@@ -70,7 +72,7 @@ class RemoteControl:
             self.remoteCmd(cmd) #重新执行该命令
 
     def uploadFile(self, localPath, remotePath):
-        self.sftp.put(localPath, remotePath)
+        self.sftp.put(localPath, remotePath, confirm=True)
 
     def downloadFile(self, remotePath, localPath):
         self.sftp.get(remotePath, localPath)
@@ -96,12 +98,15 @@ class RemoteControl:
         self.sftp.close()
         self.ssh.close()
 
+
 def genGDC(control):
     control.remoteCmd(" python3 /userdata/lfi/camera_params/gdc_map.py /userdata/lfi/camera_params/preposition_intrinsic.json /userdata/lfi/camera_params/layout_preposition.json /userdata/lfi/camera_params/gdc_map_preposition.txt")
+
 
 def checkFile(control):
     control.remoteCmd("ls -al /userdata/lfi/camera_params/")
     control.remoteCmd("cat  /userdata/lfi/json_config.json | grep code")
+
 
 def uploadCameraFile(control):
     preSn, panoSn = httpService.getPrePanoCameraSn()
@@ -111,20 +116,21 @@ def uploadCameraFile(control):
     control.uploadFile(preFile, "/userdata/lfi/camera_params/preposition_intrinsic.json")
     control.uploadFile(panoFile, "/userdata/lfi/camera_params/panoramic_intrinsic.yaml")
 
+
 def copyGDCScript(control):
     control.remoteCmd("cp /root/novabot/ota_lib/camera_params/gdc_map.py  /userdata/lfi/camera_params/")
     control.remoteCmd("cp /root/novabot/ota_lib/camera_params/layout_preposition.json  /userdata/lfi/camera_params/")
 
-num = 1
+
 def upgrade(control):
     print("开始测试=================")
-    input("随意点击键盘开始测试...")
-    print("测试第", num, "台机器")
-    num += 1
+    #input("随意点击键盘开始测试...")
+   # print("测试第", num, "台机器")
+    #num += 1
     control.reconnect()
-    control.uploadFile("d:/eblfimvpfactory202308114651.deb", "/root/eblfimvpfactory202308114651.deb")
+    control.uploadFile("d:/lfimvpfactory20231014475.deb", "/root/lfimvpfactory20231014475.deb")
     print("文件上传成功")
-    control.remoteCmd("dpkg -x eblfimvpfactory202308114651.deb novabot.new")
+    control.remoteCmd("dpkg -x lfimvpfactory20231014475.deb novabot.new")
     print("文件解压完成")
     control.remoteCmd("ls")
     control.remoteCmd("cp /root/novabot.new/scripts/run_ota.sh /userdata/ota/")
@@ -136,10 +142,11 @@ def upgrade(control):
     print("等待30s后继续执行数据清理...")
     time.sleep(30)
     control.reconnect()
-    control.remoteCmd("rm -rf /root/eblfimvpfactory202308114651.deb")
+    control.remoteCmd("rm -rf /root/lfimvpfactory20231014475.deb")
     control.remoteCmd("rm -rf /root/novabot.bak")
     control.remoteCmd("cat /userdata/ota/upgrade.txt")
     control.remoteCmd("ls")
+    time.sleep(40)
     while(1):
         checkFile(control)
         ret = input("是否结束？0：继续检测，1：结束")
@@ -149,9 +156,11 @@ def upgrade(control):
     control.close()
     print("完成测试============")
 
+
 def quit(control):
     print("程序退出")
     exit(0)
+
 
 def startService(control):
     control.remoteCmd("ps -aux | grep tof_camera_node")
@@ -163,19 +172,35 @@ def startService(control):
         print("不需要重启服务")
     return
 
+
 def getMac(control):
     #control.remoteCmd("bash /usr/bin/startbt6212.sh & ")  #获取蓝牙MAC，此处会一直阻塞在这里，需优化执行脚本
     control.remoteCmd("cat /bl.cfg | grep \"BD Address\"  | awk '{print $3}'")
+
+
 def recharge(control):
     control.remoteCmd("/root/novabot/debug_sh/test_recharge.sh ")
+
+
 def agingTest(control):
     control.remoteCmd("nohup python3 /root/novabot/debug_sh/chassis_Aging_Test.py&")
+
+
 def model2User(control):
     control.remoteCmd("sed -i 's/flag=true/flag=false/' /root/novabot/test_scripts/factory_test/start_test.sh ")
+
+
 def model2Factory(control):
     control.remoteCmd("sed -i 's/flag=false/flag=true/' /root/novabot/test_scripts/factory_test/start_test.sh ")
+
+
 def modelStatus(control):
     control.remoteCmd("grep 'flag=' /root/novabot/test_scripts/factory_test/start_test.sh ")
+
+
+def checkGDC(control):
+    control.uploadFile("d:/verify_txt.py", "~/verify_txt.py")
+    control.remoteCmd("python3 verify_txt.py -g /userdata/lfi/camera_params/gdc_map_preposition.txt")
 
 def main():
     switch_dict = {
@@ -195,7 +220,7 @@ def main():
     }
 
     control = RemoteControl(hostname, port, username, password)
-    #通过SSH网口直连机器
+    # 通过SSH网口直连机器
     print("请先通过网口直连Novabot机器")
     control.reconnect()
     while (1):
