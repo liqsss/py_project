@@ -4,6 +4,7 @@ import openai
 import face
 import sendEmail
 
+#api key  access https://github.com/chatanywhere/GPT_API_free
 openai.api_base = 'https://api.chatanywhere.com.cn'
 openai.api_key = 'sk-K2kmaIsLhynwlQIeCl4OXELsA4xyUe03eaRwFoIXR7w5Kqbz'
 # 初始化语音识别器和语音合成器
@@ -81,8 +82,7 @@ def gpt_35_api_stream(messages: list):
 	except Exception as err:
 		return (False, f'OpenAI API 异常: {err}')
 
-
-if __name__ == '__main__':
+def chatWithAI():
     messages = []
     name = face.checkFace()
     if name == "Unknown":
@@ -100,4 +100,17 @@ if __name__ == '__main__':
         completion['role'] = 'user'  # "{'role': '', 'content': ''}"
         completion['content'] = text
         messages.append(completion)  # = [{'role': 'user', 'content': text}, ]
-        gpt_35_api_stream(messages)
+        ret = gpt_35_api_stream(messages)
+        print(ret)
+
+
+def AiDrawer():
+	response = openai.Image.create(
+		prompt="a white siamese cat",
+		n=1,
+		size="1024x1024"
+	)
+	image_url = response['data'][0]['url']
+
+if __name__ == '__main__':
+	chatWithAI()

@@ -175,7 +175,8 @@ def startService(control):
 
 def getMac(control):
     #control.remoteCmd("bash /usr/bin/startbt6212.sh & ")  #获取蓝牙MAC，此处会一直阻塞在这里，需优化执行脚本
-    control.remoteCmd("cat /bl.cfg | grep \"BD Address\"  | awk '{print $3}'")
+    #control.remoteCmd("cat /bl.cfg | grep \"BD Address\"  | awk '{print $3}'")
+    control.remoteCmd("cat /userdata/lfi/ble_mac.txt ")
 
 
 def recharge(control):

@@ -55,19 +55,24 @@ class FaceRecognition:
                 cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
                 cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.5, (255, 255, 255), 1)
                 if name != "Unknown":
+                    self.video_capture.release()  # 释放摄像头资源
+                    cv2.destroyAllWindows()  # 关闭视频窗口
                     return name
             cv2.imshow('Video', frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+            cv2.waitKey(1)
+            #if cv2.waitKey(1) & 0xFF == ord('q'):
+            #    break
 
         self.video_capture.release()  #释放摄像头资源
-        cv2.destroyAllWindows()  #关闭视频窗口
+        cv2.destroyAllWindows()  # 关闭视频窗口
         return name
 
 def checkFace():
     face = FaceRecognition()
     face.readKnownImage()
     return face.Recognition()
+
+
 
 if __name__ == "__main__":
     if checkFace() != "Unknown":
