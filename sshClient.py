@@ -156,6 +156,24 @@ def upgrade(control):
     control.close()
     print("完成测试============")
 
+def upgrade2(control):
+    print("开始测试=================")
+    control.reconnect()
+    #control.remoteCmd("/root/novabot/scripts/stop_service.sh")
+    control.remoteCmd("rm  -rf /root/novabot")
+    control.remoteCmd("sync")
+    control.uploadFile("d:/lfimvp-factory-20231114489.deb", "/root/lfimvp-factory-20231114489.deb")
+    control.remoteCmd("sync")
+    print("文件上传成功")
+    control.remoteCmd("dpkg -x lfimvp-factory-20231114489.deb novabot")
+    control.remoteCmd("sync")
+    control.remoteCmd("sleep 2s")
+    print("文件解压完成")
+    control.remoteCmd("rm -rf /root/lfimvp-factory-20231114489.deb")
+    control.remoteCmd("cat /root/novabot/Readme.txt")
+    control.remoteCmd("/root/novabot/scripts/start_service.sh")
+    control.close()
+    print("完成升级============")
 
 def quit(control):
     print("程序退出")
@@ -185,6 +203,7 @@ def recharge(control):
 
 def agingTest(control):
     control.remoteCmd("nohup python3 /root/novabot/debug_sh/chassis_Aging_Test.py&")
+   # control.remoteCmd("nohup python3 /root/novabot/debug_sh/chassis_Aging_Test.py&")
 
 
 def model2User(control):
@@ -198,17 +217,26 @@ def model2Factory(control):
 def modelStatus(control):
     control.remoteCmd("grep 'flag=' /root/novabot/test_scripts/factory_test/start_test.sh ")
 
-
 def checkGDC(control):
     control.uploadFile("d:/verify_txt.py", "~/verify_txt.py")
     control.remoteCmd("python3 verify_txt.py -g /userdata/lfi/camera_params/gdc_map_preposition.txt")
+
+def checkBT(control):
+    control.remoteCmd("hciconfig")
+
+def checkMotorSpeed(control):
+    #control.remoteCmd("source /opt/ros/galactic/setup.bash ")
+    control.remoteCmd("ros2 topic echo blade_speed_get") #电机转速
+
+def checkMotorCurrent(control):
+    control.remoteCmd("ros2 topic echo motor_current")  # 电机电流
 
 def main():
     switch_dict = {
         0: quit,
         1: genGDC,
         2: uploadCameraFile,
-        3: upgrade,
+        3: upgrade2,
         4: checkFile,
         5: getMac,
         6: copyGDCScript,
@@ -217,7 +245,10 @@ def main():
         9: agingTest,
         10: model2User,
         11: model2Factory,
-        12: modelStatus
+        12: modelStatus,
+        13: checkBT,
+        14: checkMotorCurrent,
+        15: checkMotorSpeed
     }
 
     control = RemoteControl(hostname, port, username, password)
@@ -238,7 +269,10 @@ def main():
               "9: TTT===老化测试\n"
               "10: ===>切换到用户模式\n"
               "11: ===>切换到工厂模式\n"
-              "12: ===>工作模式状态查询")
+              "12: ===>工作模式状态查询\n"
+              "13: 检查蓝牙驱动\n"
+              "14: 电机电流\n"
+              "15: 电机转速\n")
         num = input("请输入操作项ID：")
         switch_dict.get(int(num), quit)(control)
 
