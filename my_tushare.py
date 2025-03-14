@@ -1,7 +1,7 @@
 import tushare as ts  # https://www.tushare.pro/
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+#import matplotlib
+#matplotlib.use('TkAgg')
+#import matplotlib.pyplot as plt
 
 pro = ts.pro_api('3ef62fda3b6929541a9fbffd853d5f5a164d3b35fd20b7e413774099')
 
@@ -39,11 +39,11 @@ sz = pro.daily(**{
 	"amount"
 ])
 
-plt.plot(df.index, df['close'], label="Line 1")
-plt.yscale('linear')
+#plt.plot(df.index, df['close'], label="Line 1")
+#plt.yscale('linear')
 # plt.plot(df['trade_date'], df['close'], label="Line 1")
-plt.legend()
-plt.show()
+#plt.legend()
+#plt.show()
 
-
+print(df["close"])
 
