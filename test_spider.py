@@ -277,11 +277,11 @@ def testArpAttack(dstip):
 
 
 #bsObj = BeautifulSoup(html.read(), features="html.parser")
-#getAllExternalLinks("https://www.oreilly.com")
+getAllExternalLinks("https://www.oreilly.com")
 #scrapImg("http://www.pythonscraping.com")
 #testPost()
 #testPostUseSession()
 #test_blackweb()
 #testScapy("104.233.231.194")
 #testScapy("192.168.0.124")
-testArpAttack("192.168.0.137")
+#testArpAttack("192.168.0.137")

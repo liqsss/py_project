@@ -45,5 +45,6 @@ sz = pro.daily(**{
 #plt.legend()
 #plt.show()
 
-print(df["close"])
-
+print(df[["close","change"]])
+print(df["close"].tail(5))
+print(df.tail(5))
